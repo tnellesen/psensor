@@ -1023,6 +1023,25 @@
                   </packing>
                 </child>
                 <child>
+                  <object class="GtkCheckButton" id="opencorsairlink">
+                    <property name="label" translatable="yes">Enable support of opencorsairlink</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">False</property>
+                    <property name="tooltip_text" translatable="yes">Psensor has not been built with opencorsairlink support</property>
+                    <property name="margin_left">14</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">4</property>
+                    <property name="margin_bottom">4</property>
+                    <property name="xalign">0</property>
+                    <property name="draw_indicator">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">8</property>
+                  </packing>
+                </child>
+                <child>
                   <object class="GtkCheckButton" id="hddtemp">
                     <property name="label" translatable="yes">Enable support of hddtemp daemon</property>
                     <property name="visible">True</property>
@@ -1037,7 +1056,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">8</property>
+                    <property name="top_attach">10</property>
                   </packing>
                 </child>
                 <child>
@@ -1056,7 +1075,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">9</property>
+                    <property name="top_attach">11</property>
                   </packing>
                 </child>
                 <child>
@@ -1075,7 +1094,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">10</property>
+                    <property name="top_attach">12</property>
                   </packing>
                 </child>
                 <child>
@@ -1094,7 +1113,7 @@
                   </object>
                   <packing>
                     <property name="left_attach">0</property>
-                    <property name="top_attach">11</property>
+                    <property name="top_attach">13</property>
                   </packing>
                 </child>
                 <child>
@@ -1107,7 +1126,28 @@
                     <property name="margin_bottom">4</property>
                     <property name="xalign">0</property>
                     <property name="xpad">4</property>
-                    <property name="label" translatable="yes">Hard disk drive</property>
+                    <property name="label" translatable="yes">Hard dick drive</property>
+                    <property name="angle">0.01</property>
+                    <attributes>
+                      <attribute name="weight" value="bold"/>
+                    </attributes>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">9</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label23">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="margin_left">4</property>
+                    <property name="margin_right">4</property>
+                    <property name="margin_top">8</property>
+                    <property name="margin_bottom">4</property>
+                    <property name="xalign">0</property>
+                    <property name="xpad">4</property>
+                    <property name="label" translatable="yes">Other Devices</property>
                     <property name="angle">0.01</property>
                     <attributes>
                       <attribute name="weight" value="bold"/>

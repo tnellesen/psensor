@@ -86,6 +86,13 @@ AM_CONDITIONAL(LIBUDISKS2, test -n "$LIBUDISKS2_LIBS")
 AC_SUBST(LIBUDISKS2_CFLAGS)
 AC_SUBST(LIBUDISKS2_LIBS)
 
+# Check corsair
+CORSAIR_CFLAGS="-I/usr/lib/libusb-1.0 -I/home/tyler/CS/GTK/psensor/src/OpenCorsairLink/include"
+CORSAIR_LIBS="-lusb-1.0"
+AM_CONDITIONAL(CORSAIR, test -n "$CORSAIR_LIBS")
+AC_SUBST(CORSAIR_CFLAGS)
+AC_SUBST(CORSAIR_LIBS)
+
 # Check libatasmart
 PKG_CHECK_MODULES(ATASMART, libatasmart,
 	          [AC_DEFINE([HAVE_ATASMART],[1],[Use libatasmart])],

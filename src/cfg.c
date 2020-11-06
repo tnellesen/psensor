@@ -117,6 +117,8 @@ static const char *KEY_PROVIDER_HDDTEMP_ENABLED = "provider-hddtemp-enabled";
 static const char *KEY_PROVIDER_LIBATASMART_ENABLED
 = "provider-libatasmart-enabled";
 static const char *KEY_PROVIDER_NVCTRL_ENABLED = "provider-nvctrl-enabled";
+static const char *KEY_PROVIDER_OPENCORSAIRLINK_ENABLED 
+= "provider-opencorsairlink-enabled";
 static const char *KEY_PROVIDER_UDISKS2_ENABLED = "provider-udisks2-enabled";
 
 static const char *KEY_DEFAULT_HIGH_THRESHOLD_TEMPERATURE
@@ -883,6 +885,11 @@ bool config_is_nvctrl_enabled(void)
 	return get_bool(KEY_PROVIDER_NVCTRL_ENABLED);
 }
 
+bool config_is_opencorsairlink_enabled(void)
+{
+	return get_bool(KEY_PROVIDER_OPENCORSAIRLINK_ENABLED);
+}
+
 bool config_is_atiadlsdk_enabled(void)
 {
 	return get_bool(KEY_PROVIDER_ATIADLSDK_ENABLED);
@@ -896,6 +903,11 @@ void config_set_lmsensor_enable(bool b)
 void config_set_nvctrl_enable(bool b)
 {
 	set_bool(KEY_PROVIDER_NVCTRL_ENABLED, b);
+}
+
+void config_set_opencorsairlink_enable(bool b)
+{
+	set_bool(KEY_PROVIDER_OPENCORSAIRLINK_ENABLED, b);
 }
 
 void config_set_atiadlsdk_enable(bool b)

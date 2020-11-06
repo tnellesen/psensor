@@ -1,9 +1,11 @@
+AUTOMAKE_OPTIONS = subdir-objects
 noinst_LIBRARIES = libpsensor.a
 
 libpsensor_a_SOURCES = \
 	amd.h\
 	bool.h\
 	color.h color.c\
+	corsair.h\
 	hdd.h hdd_hddtemp.c\
 	lmsensor.h\
 	measure.h measure.c\
@@ -20,7 +22,7 @@ libpsensor_a_SOURCES = \
 	temperature.c temperature.h\
 	url.c url.h
 
-AM_CPPFLAGS = -Wall -Werror
+AM_CPPFLAGS = -Wall
 
 if SENSORS
 libpsensor_a_SOURCES += lmsensor.c
@@ -35,6 +37,15 @@ endif
 
 if NVIDIA
 libpsensor_a_SOURCES += nvidia.c
+endif
+
+if CORSAIR
+AM_CPPFLAGS += $(CORSAIR_CFLAGS)
+LIBS += $(CORSAIR_LIBS)
+libpsensor_a_SOURCES += corsair.c ../OpenCorsairLink/device.c ../OpenCorsairLink/logic/scan.c ../OpenCorsairLink/logic/print.c ../OpenCorsairLink/logic/settings/commanderpro.c \
+../OpenCorsairLink/drivers/commanderpro.c ../OpenCorsairLink/logic/options.c ../OpenCorsairLink/drivers/unsupported.c ../OpenCorsairLink/protocol/commanderpro/core.c \
+../OpenCorsairLink/protocol/commanderpro/fan.c ../OpenCorsairLink/protocol/commanderpro/temperature.c ../OpenCorsairLink/protocol/commanderpro/power.c \
+../OpenCorsairLink/protocol/commanderpro/led.c ../OpenCorsairLink/lowlevel/commanderpro.c 
 endif
 
 if LIBATIADL

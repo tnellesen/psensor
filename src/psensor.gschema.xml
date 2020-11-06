@@ -199,6 +199,13 @@
       <description>Whether the gtop2 library is used to
       system information.</description>
     </key>
+    <key name="provider-opencorsairlink-enabled" type="b">
+      <default>true</default>
+      <summary>Whether the OpenCorsairLink library is used to retrieve
+      system information.</summary>
+      <description>Whether the OpenCorsairLink library is used to
+      system information.</description>
+    </key>
     <key name="provider-hddtemp-enabled" type="b">
       <default>false</default>
       <summary>Whether the hddtemp daemon is used to retrieve

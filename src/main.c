@@ -32,6 +32,7 @@
 
 #include <amd.h>
 #include <cfg.h>
+#include <corsair.h>
 #include <graph.h>
 #include <hdd.h>
 #include <lmsensor.h>
@@ -139,6 +140,7 @@ static void *update_measures(void *data)
 
 		remote_psensor_list_update(sensors);
 		nvidia_psensor_list_update(sensors);
+		corsair_psensor_list_update(sensors);
 		amd_psensor_list_update(sensors);
 		udisks2_psensor_list_update(sensors);
 		gtop2_psensor_list_update(sensors);
@@ -356,6 +358,7 @@ static void cleanup(struct ui_psensor *ui)
 	log_debug("Cleanup...");
 
 	nvidia_cleanup();
+	/*corsair_cleanup();*/
 	amd_cleanup();
 	rsensor_cleanup();
 
@@ -406,6 +409,9 @@ static struct psensor **create_sensors_list(const char *url)
 
 		if (config_is_nvctrl_enabled())
 			nvidia_psensor_list_append(&sensors, 600);
+
+		if (config_is_opencorsairlink_enabled())
+			corsair_psensor_list_append(&sensors, 600);
 
 		if (config_is_atiadlsdk_enabled())
 			amd_psensor_list_append(&sensors, 600);
@@ -475,6 +481,7 @@ int main(int argc, char **argv)
 	}
 
 	log_init();
+
 
 	app = g_application_new("wpitchoune.psensor", 0);
 

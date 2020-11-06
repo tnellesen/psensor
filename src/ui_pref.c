@@ -21,6 +21,7 @@
 
 #include <amd.h>
 #include <cfg.h>
+#include <corsair.h>
 #include <graph.h>
 #include <hdd.h>
 #include <lmsensor.h>
@@ -94,8 +95,8 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 	GtkToggleButton *w_enable_menu, *w_enable_launcher_counter,
 		*w_hide_on_startup, *w_win_restore, *w_slog_enabled,
 		*w_autostart, *w_smooth_curves, *w_atiadlsdk, *w_lmsensors,
-		*w_nvctrl, *w_gtop2, *w_hddtemp, *w_libatasmart, *w_udisks2,
-		*w_decoration, *w_keep_below;
+		*w_nvctrl, *w_opencorsairlink, *w_gtop2, *w_hddtemp, *w_libatasmart,
+		*w_udisks2, *w_decoration, *w_keep_below;
 	GtkComboBoxText *w_temp_unit;
 	GtkEntry *w_notif_script;
 	char *notif_script;
@@ -251,6 +252,19 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 	gtk_toggle_button_set_active(w_nvctrl, config_is_nvctrl_enabled());
 
+	w_opencorsairlink
+		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
+							   "opencorsairlink"));
+
+	if (nvidia_is_supported()) {
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_opencorsairlink), FALSE);
+	} else {
+		gtk_widget_set_sensitive(GTK_WIDGET(w_opencorsairlink), 0);
+		gtk_widget_set_has_tooltip(GTK_WIDGET(w_opencorsairlink), TRUE);
+	}
+
+	gtk_toggle_button_set_active(w_opencorsairlink, config_is_opencorsairlink_enabled());
+
 	w_atiadlsdk
 		= GTK_TOGGLE_BUTTON(gtk_builder_get_object(builder,
 							   "atiadlsdk"));
@@ -377,6 +391,9 @@ void ui_pref_dialog_run(struct ui_psensor *ui)
 
 		config_set_nvctrl_enable
 			(gtk_toggle_button_get_active(w_nvctrl));
+
+		config_set_opencorsairlink_enable
+			(gtk_toggle_button_get_active(w_opencorsairlink));
 
 		config_set_atiadlsdk_enable
 			(gtk_toggle_button_get_active(w_atiadlsdk));

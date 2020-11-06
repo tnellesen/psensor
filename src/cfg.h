@@ -132,6 +132,9 @@ void config_set_libatasmart_enable(bool);
 bool config_is_nvctrl_enabled(void);
 void config_set_nvctrl_enable(bool);
 
+bool config_is_opencorsairlink_enabled(void);
+void config_set_opencorsairlink_enable(bool);
+
 bool config_is_atiadlsdk_enabled(void);
 void config_set_atiadlsdk_enable(bool);
 
